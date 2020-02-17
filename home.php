@@ -12,6 +12,7 @@
                 </form>
             </div>
             <?php
+                include ('dbconnection.php');
                 session_start();
 
                 if ($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -19,6 +20,14 @@
                     $passw=filter_var($_POST["password"],FILTER_SANITIZE_STRING );
                 }
                 
+                $query_select="SELECT * FROM admin WHERE user='$user' and password='$passw'";
+                $run_query=(mysqli_query($connection, $query_select));
+                $result=mysqli_num_rows($run_query);
+                if ($result>0){
+                    echo "Welcome" ." " .$user;
+                }
+
+            
                 $_SESSION ['user'] = array(
                     "username"=>"$user");
                     
