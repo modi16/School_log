@@ -1,37 +1,48 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="home.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
         <body>    
-            <div class="homeform">
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <h1>Please sign in</h1>
-                    <input type="text" name="username" placeholder="Username">
-                    <input type="text" name="password" placeholder="Pasword">
-                    <input type="submit" class="btn btn-primary" value="Sign in">
-                </form>
-            </div>
+            <nav class="navbar navbar-expand-sm bg-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Add new record</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Display new record</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
+
+            </nav>
             <?php
-                include ('dbconnection.php');
-                session_start();
-
-                if ($_SERVER["REQUEST_METHOD"]=="POST"){
-                    $user=filter_var($_POST["username"], FILTER_SANITIZE_STRING);
-                    $passw=filter_var($_POST["password"],FILTER_SANITIZE_STRING );
-                }
-                
-                $query_select="SELECT * FROM admin WHERE user='$user' and password='$passw'";
-                $run_query=(mysqli_query($connection, $query_select));
-                $result=mysqli_num_rows($run_query);
-                if ($result>0){
-                    echo "Welcome" ." " .$user;
-                }
-
-            
-                $_SESSION ['user'] = array(
-                    "username"=>"$user");
+                include('dbconnection.php');
+                $queryall='SELECT * FROM teacher_records';
+                $run_query=(mysqli_query($connection, $queryall));
+                while($result=mysqli_fetch_assoc($run_query)){
+            ?> 
                     
-            ?>
+                    <tr>
+                    <td> <?php echo $result['teacher_id'] ?></td>
+                    <td> <?php echo $result['Teacher name'] ?></td>
+                    <td> <?php echo $result['Teacher email'] ?></td>
+                    <td> <?php echo $result['Teacher qualification'] ?></td>
+                    <td> <?php echo $result['Teacher class'] ?></td>
+                    <td> <?php echo $result['Mobile'] ?></td>
+                    <td> <?php echo $result['Address'] ?></td>
+                    <td> <?php echo $result['Joining date'] ?></td>
+                    <td> <?php echo $result['Profile pic'] ?></td>
+                    
+                    </tr>
+                    <?php } ?> 
+                    
+            
         </body>
     
 </html> 
