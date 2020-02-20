@@ -24,8 +24,12 @@
                 $run_query=(mysqli_query($connection, $query_select));
                 $result=mysqli_num_rows($run_query);
                 if ($result>0){
-                    echo "Welcome" ." " .$user;
+                    header("Location: https://localhost/school");
+                    
                 }
+                // else{
+                //     echo "wrong name or password";
+                // }
 
             
                 $_SESSION ['user'] = array(
