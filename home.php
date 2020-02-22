@@ -18,22 +18,22 @@
                 if ($_SERVER["REQUEST_METHOD"]=="POST"){
                     $user=filter_var($_POST["username"], FILTER_SANITIZE_STRING);
                     $passw=filter_var($_POST["password"],FILTER_SANITIZE_STRING );
-                }
-                
-                $query_select="SELECT * FROM people_admin WHERE user='$user' and password='$passw'";
-                $run_query=(mysqli_query($connection, $query_select));
-                $result=mysqli_num_rows($run_query);
-                if ($result>0){
-                    header("Location: https://localhost/school/main");
-                    
-                }
-                // else{
-                //     echo "wrong name or password";
-                // }
 
+                    $query_select="SELECT * FROM people_admin WHERE user='$user' and password='$passw'";
+                    $run_query=(mysqli_query($connection, $query_select));
+                    $result=mysqli_num_rows($run_query);
+                    if ($result>0){
+                        $_SESSION ['user'] = array(
+                            "username"=>"$user");
+                        header("Location: https://localhost/school/main.php");
+                    
+                    } else{
+                        echo "Your username or password are incorrect";
+                    }
+                }
+ 
             
-                $_SESSION ['user'] = array(
-                    "username"=>"$user");
+                
                     
             ?>
         </body>
