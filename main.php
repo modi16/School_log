@@ -21,25 +21,40 @@
                 </ul>
 
             </nav>
+            <table class="table">   
+            <thead>
+                <tr>
+                    <td> No.</td>
+                    <td> Teacher name</td>
+                    <td> Teacher email</td>
+                    <td> Teacher qualification</td>
+                    <td> Teacher class</td>
+                    <td> Mobile</td>
+                    <td> Address</td>
+                    <td> Joining date</td>
+                </tr>
+            </thead>
             <?php
                 include('dbconnection.php');
                 $queryall='SELECT * FROM teacher_records';
                 $run_query=(mysqli_query($connection, $queryall));
+                
                 while($result=mysqli_fetch_assoc($run_query)){
             ?> 
-                    
-                    <tr>
-                    <td> <?php echo $result['teacher_id'] ?></td>
-                    <td> <?php echo $result['Teacher name'] ?></td>
-                    <td> <?php echo $result['Teacher email'] ?></td>
-                    <td> <?php echo $result['Teacher qualification'] ?></td>
-                    <td> <?php echo $result['Teacher class'] ?></td>
-                    <td> <?php echo $result['Mobile'] ?></td>
-                    <td> <?php echo $result['Address'] ?></td>
-                    <td> <?php echo $result['Joining date'] ?></td>
-                    <td> <?php echo $result['Profile pic'] ?></td>
-                    
-                    </tr>
+                
+                        <tr>
+                            <td> <?php echo $result['teacher_id'] ?></td>
+                            <td> <?php echo $result['Teacher name'] ?></td>
+                            <td> <?php echo $result['Teacher email'] ?></td>
+                            <td> <?php echo $result['Teacher qualification'] ?></td>
+                            <td> <?php echo $result['Teacher class'] ?></td>
+                            <td> <?php echo $result['Mobile'] ?></td>
+                            <td> <?php echo $result['Address'] ?></td>
+                            <td> <?php echo $result['Joining date'] ?></td>
+                        
+                        </tr> 
+
+                </table>
                     <?php } ?> 
                     
             
