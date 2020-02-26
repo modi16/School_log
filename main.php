@@ -15,15 +15,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Display new record</a>
                     </li>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn  my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Logout</a>
                     </li>
                 </ul>
 
             </nav>
-            <table class="table">   
-            <thead>
-                <tr>
+            
+            <?php
+                include('dbconnection.php');
+                $queryall='SELECT * FROM teacher_records';
+                $run_query=(mysqli_query($connection, $queryall));
+                echo "<table class='table'>";   
+                echo "<tr>
                     <td> No.</td>
                     <td> Teacher name</td>
                     <td> Teacher email</td>
@@ -33,29 +41,28 @@
                     <td> Address</td>
                     <td> Joining date</td>
                 </tr>
-            </thead>
-            <?php
-                include('dbconnection.php');
-                $queryall='SELECT * FROM teacher_records';
-                $run_query=(mysqli_query($connection, $queryall));
-                
+            </thead>";
                 while($result=mysqli_fetch_assoc($run_query)){
-            ?> 
-                
-                        <tr>
-                            <td> <?php echo $result['teacher_id'] ?></td>
-                            <td> <?php echo $result['Teacher name'] ?></td>
-                            <td> <?php echo $result['Teacher email'] ?></td>
-                            <td> <?php echo $result['Teacher qualification'] ?></td>
-                            <td> <?php echo $result['Teacher class'] ?></td>
-                            <td> <?php echo $result['Mobile'] ?></td>
-                            <td> <?php echo $result['Address'] ?></td>
-                            <td> <?php echo $result['Joining date'] ?></td>
-                        
-                        </tr> 
-
-                </table>
-                    <?php } ?> 
+                    echo "<tr><td>";
+                    echo $result['teacher_id'];
+                    echo "</td><td>";
+                    echo $result['Teacher name'];
+                    echo "</td><td>";
+                    echo $result['Teacher email'];
+                    echo "</td><td>"; 
+                    echo $result['Teacher qualification'];
+                    echo "</td><td>";
+                    echo $result['Teacher class'];
+                    echo "</td><td>";
+                    echo $result['Mobile'];
+                    echo "</td><td>";
+                    echo $result['Address'];
+                    echo "</td><td>";
+                    echo $result['Joining date'];
+                    echo "</td></tr>";                     
+                    }
+                    echo" </table>";
+         ?> 
                     
             
         </body>
