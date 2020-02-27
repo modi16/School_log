@@ -3,29 +3,31 @@
         <link rel="stylesheet" type="text/css" href="home.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
-        <body>    
-            <nav class="navbar navbar-expand-sm bg-light">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Add new record</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Display new record</a>
-                    </li>
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn  my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
-                    </li>
-                </ul>
-
-            </nav>
-            
+        <body> 
+            <div class="justify-content-between" id="parent">  
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                    
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Add new record</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Display new record</a>
+                        </li>
+                        
+                    </ul>
+                    <ul class="navbar-nav ">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </nav>
+            </div>
             <?php
                 include('dbconnection.php');
                 $queryall='SELECT * FROM teacher_records';
