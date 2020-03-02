@@ -12,10 +12,10 @@
                             <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Add new record</a>
+                            <a class="nav-link" href="/school/new.php">Add new record</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Display new record</a>
+                            <a class="nav-link" href="#">Display all records</a>
                         </li>
                         
                     </ul>
@@ -48,19 +48,19 @@
                     echo "<tr><td>";
                     echo $result['teacher_id'];
                     echo "</td><td>";
-                    echo $result['Teacher name'];
+                    echo $result['Teacher_name'];
                     echo "</td><td>";
-                    echo $result['Teacher email'];
+                    echo $result['Teacher_email'];
                     echo "</td><td>"; 
-                    echo $result['Teacher qualification'];
+                    echo $result['Teacher_qualification'];
                     echo "</td><td>";
-                    echo $result['Teacher class'];
+                    echo $result['Teacher_class'];
                     echo "</td><td>";
                     echo $result['Mobile'];
                     echo "</td><td>";
                     echo $result['Address'];
                     echo "</td><td>";
-                    echo $result['Joining date'];
+                    echo $result['Joining_date'];
                     echo "</td></tr>";                     
                     }
                     echo" </table>";
