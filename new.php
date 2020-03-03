@@ -45,14 +45,16 @@
                 if ($_SERVER["REQUEST_METHOD"]=="POST"){
                     $name=filter_var($_POST["name"], FILTER_SANITIZE_STRING);
                     $email=filter_var($_POST["email"],FILTER_SANITIZE_STRING );
-                    $qualification = $_POST["qualification"];
-                    $class=$_POST["class"];
-                    $mobile=$_POST["mobile"];
-                    $address=$_POST["address"];
+                   
 
-                    $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address, Joining_date) VALUES ('$name','$email','$qualification', '$class', '$mobile', '$address')';
-                
-                    $run_query=(mysqli_query($connection, $new));
+                    $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address) VALUES (?,?,?,?,?,?)';
+                    $stmt = mysqli_prepare($connection, $new);
+                    $stmt->bind_param("ssssss", $name, $email, $_POST["qualification"],$_POST["class"], $_POST["mobile"], $_POST["address"] );
+                    $stmt->execute();
+                    // $run_query=(mysqli_query($connection, $new));
+                   
+                        echo "Record successfully inserted";
+                   
                 }
            ;
                 
