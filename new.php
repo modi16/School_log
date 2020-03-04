@@ -47,7 +47,7 @@
                     $email=filter_var($_POST["email"],FILTER_SANITIZE_STRING );
                    
 
-                    $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address) VALUES (?,?,?,?,?,?)';
+                    $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address, Joining_date) VALUES (?,?,?,?,?,?, CURDATE())';
                     $stmt = mysqli_prepare($connection, $new);
                     $stmt->bind_param("ssssss", $name, $email, $_POST["qualification"],$_POST["class"], $_POST["mobile"], $_POST["address"] );
                     $stmt->execute();
