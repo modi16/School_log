@@ -27,14 +27,26 @@
             </div>
             <div>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    
-                    <input type="text" name="name" placeholder="Full name">
-                    <input type="text" name="email" placeholder="Email">
-                    <input type="text" name="qualification" placeholder="Qualification">
-                    <input type="text" name="class" placeholder="Class">
-                    <input type="text" name="mobile" placeholder="Phone">
-                    <input type="text" name="address" placeholder="Address">
-                    
+                    <div class="form-group"> 
+                        <label>Name</label> 
+                        <input type="text" class="form-control" name="name" placeholder="Full name">
+                    </div>
+                    <div class="form-group"> 
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group"> 
+                        <input type="text" class="form-control" name="qualification" placeholder="Qualification">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="class" placeholder="Class">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="mobile" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="address" placeholder="Address">
+                    </div>
                     <input type="submit" class="btn btn-primary" value="Add">
 
                 </form>
