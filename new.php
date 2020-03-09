@@ -26,26 +26,26 @@
                 </nav>
             </div>
             <div>
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <form method="post" class="border border-light p-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <div class="form-group"> 
                         <label>Name</label> 
-                        <input type="text" class="form-control" name="name" placeholder="Full name">
+                        <input type="text" class="form-control new" name="name" placeholder="Full name">
                     </div>
                     <div class="form-group"> 
                         <label>Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Email">
+                        <input type="text" class="form-control new" name="email" placeholder="Email">
                     </div>
                     <div class="form-group"> 
-                        <input type="text" class="form-control" name="qualification" placeholder="Qualification">
+                        <input type="text" class="form-control new" name="qualification" placeholder="Qualification">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="class" placeholder="Class">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="mobile" placeholder="Phone">
+                        <input type="text" class="form-control new" name="mobile" placeholder="Phone">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="address" placeholder="Address">
+                        <input type="text" class="form-control new"name="address" placeholder="Address">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Add">
 
