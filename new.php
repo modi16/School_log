@@ -25,7 +25,7 @@
                     
                 </nav>
             </div>
-            <div>
+            <div class="container">
                 <form method="post" class="border border-light p-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <div class="form-group"> 
                         <label>Name</label> 
@@ -38,11 +38,13 @@
                     <div class="form-group"> 
                         <input type="text" class="form-control new" name="qualification" placeholder="Qualification">
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="class" placeholder="Class">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control new" name="mobile" placeholder="Phone">
+                    <div class="row set">
+                        <div class="col">
+                            <input type="text" class="form-control" name="class" placeholder="Class">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" name="mobile" placeholder="Phone">
+                        </div>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control new"name="address" placeholder="Address">
