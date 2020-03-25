@@ -1,7 +1,9 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="home.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" > 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     </head>
         <body> 
             <div class="justify-content-between" id="parent">  
@@ -49,10 +51,12 @@
                     <div class="form-group">
                         <input type="text" class="form-control new"name="address" placeholder="Address">
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Add">
+                    <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modalMessage" value="Add">
 
                 </form>
+                
             </div>
+
             <?php
                 include('dbconnection.php');
 
@@ -64,17 +68,29 @@
                     $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address, Joining_date) VALUES (?,?,?,?,?,?, CURDATE())';
                     $stmt = mysqli_prepare($connection, $new);
                     $stmt->bind_param("ssssss", $name, $email, $_POST["qualification"],$_POST["class"], $_POST["mobile"], $_POST["address"] );
-                    $stmt->execute();
-                    // $run_query=(mysqli_query($connection, $new));
-                   
-                        echo "Record successfully inserted";
-                   
+                    
+                    if ($stmt->execute()){
+                        echo "<script>$('#modalMessage').modal('show')</script>";
+                    }     
                 }
            ;
                 
-         ?> 
+         ?>  
                     
             
         </body>
     
 </html> 
+<div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Record successfully inserted</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
