@@ -1,11 +1,28 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="home.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" > 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>  
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     </head>
         <body> 
+        <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Record successfully inserted</p>
+                        </div>
+                            
+                    </div>
+                </div>
+            </div>    
             <div class="justify-content-between" id="parent">  
                 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
                     
@@ -75,22 +92,9 @@
                 }
            ;
                 
-         ?>  
+            ?>  
                     
             
         </body>
     
 </html> 
-<div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Record successfully inserted</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            
-                            </div>
-                        </div>
-                    </div>
