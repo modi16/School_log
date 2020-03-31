@@ -4,10 +4,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
         <body>    
-            <div class="container homeform">
+            <div class=" homeform">
                 <div class="center">
-                    <form method="post" class="border border-light p-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                        <h1>Please sign in</h1>
+                    <div class="center-copy"></div>
+                    <div class="left-box"></div>
+                    <div class="right-box"></div>
+                    <form method="post" class="test" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                        <h1 class="instruct">Please sign in</h1>
                         <div class="form-group"> 
                             <input type="text" class="form-control" name="username" placeholder="Username">
                         </div>
@@ -15,7 +18,7 @@
                             <input type="text" class="form-control" name="password" placeholder="Pasword">
                         </div>
                     
-                        <input type="submit" class="btn btn-primary" value="Sign in">
+                        <input type="submit" class="btn btn-outline-light" value="Sign in">
                     </form>
                 </div>
             </div>
