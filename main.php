@@ -5,7 +5,7 @@
     </head>
         <body> 
             <div class="justify-content-between" id="parent">  
-                <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <nav class="navbar navbar-expand-sm ">
                     
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">

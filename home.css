@@ -50,6 +50,12 @@
     border-right: 3px solid #800020;
     border-bottom: 3px solid #800020;
 }
+.navbar{
+    background-color: #800020;
+}
+.nav-link{
+    color: white;
+}
 input{
     margin-top:10px;
 }
