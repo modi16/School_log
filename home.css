@@ -11,7 +11,6 @@
 .instruct{
     color:white;
     margin-bottom: 2rem;
-    /* z-index: 3; */
 }
 
 .center{
@@ -54,7 +53,10 @@
     background-color: #800020;
 }
 .nav-link{
-    color: white;
+    color: white;    
+}
+.nav-link:hover{
+    color: gold;   
 }
 input{
     margin-top:10px;
@@ -72,4 +74,7 @@ form{
 }
 .set{
     margin-bottom: 1rem;
+}
+.letter{
+    color: #800020;
 }
