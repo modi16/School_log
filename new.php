@@ -20,20 +20,20 @@
                 </div>
             </div>    
             <div class="justify-content-between" id="parent">  
-                <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <nav class="navbar navbar-expand-sm ">
                     
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Home</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Display all records</a>
+                            <a class="nav-link" href="/school/main.php">Display all records</a>
                         </li>
                         
                     </ul>
                     <ul class="navbar-nav ">
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">Logout</a>
+                            <a class="nav-link" href="/school/logout.php">Logout</a>
                         </li>
                         
                     </ul>

@@ -8,15 +8,15 @@
                 <nav class="navbar navbar-expand-sm ">
                     
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Home</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="/school/new.php">Add new record</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Display all records</a>
-                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="/school/main.php">Display all records</a>
+                        </li> -->
                         
                     </ul>
                     <ul class="navbar-nav ">
