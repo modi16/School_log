@@ -42,6 +42,7 @@
                     <td> Mobile</td>
                     <td> Address</td>
                     <td> Joining date</td>
+                    <td> Profile pic</td>
                 </tr>
             </thead>";
                 while($result=mysqli_fetch_assoc($run_query)){
@@ -61,6 +62,8 @@
                     echo $result['Address'];
                     echo "</td><td>";
                     echo $result['Joining_date'];
+                    echo "</td></tr>";  
+                    echo $result['Profile_Pic'];
                     echo "</td></tr>";                     
                     }
                     echo" </table>";
