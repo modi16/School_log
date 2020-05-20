@@ -41,7 +41,7 @@
                 </nav>
             </div>
             <div class="container">
-                <form method="post" class="border border-light p-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <form method="post" class="border border-light p-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="form-group"> 
                         <label>Name</label> 
                         <input type="text" class="form-control new" name="name" placeholder="Full name">
@@ -62,8 +62,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control new"name="address" placeholder="Address">
+                        <input type="text" class="form-control new" name="address" placeholder="Address">
                     </div>
+                    
+                    <input type="file" name="image">
+                    
                     <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modalMessage" value="Add">
 
                 </form>
