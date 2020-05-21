@@ -65,7 +65,7 @@
                         <input type="text" class="form-control new" name="address" placeholder="Address">
                     </div>
                     
-                    <input type="file" name="image">
+                    <input class="btn" type="file" name="image">
                     
                     <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modalMessage" value="Add">
 
