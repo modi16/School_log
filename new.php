@@ -11,6 +11,18 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
+                            <p class="letter">Please complete the form</p>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>                          
+                    </div>
+                </div>
+            </div>   
+            <div class="modal fade" id="modalMessage1" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
                             <p class="letter">Record successfully inserted</p>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -18,7 +30,7 @@
                         </div>                          
                     </div>
                 </div>
-            </div>    
+            </div>   
             <div class="justify-content-between" id="parent">  
                 <nav class="navbar navbar-expand-sm ">
                     
@@ -82,7 +94,7 @@
                     $email=filter_var($_POST["email"],FILTER_SANITIZE_STRING );
                     
                     if (strlen($name)===0 || strlen($email) ===0 || strlen($_POST["qualification"]) ===0 || strlen($_POST["class"]===0) || strlen($_POST["mobile"]===0) || strlen($_POST["address"]===0)){
-                        echo "Please complete the form";
+                        echo "<script>$('#modalMessage').modal('show')</script>";
                     } else {
 
                         $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address, Joining_date) VALUES (?,?,?,?,?,?, CURDATE())';
@@ -90,7 +102,7 @@
                         $stmt->bind_param("ssssss", $name, $email, $_POST["qualification"],$_POST["class"], $_POST["mobile"], $_POST["address"] );
                     
                     if ($stmt->execute()){
-                        echo "<script>$('#modalMessage').modal('show')</script>";
+                        echo "<script>$('#modalMessage1').modal('show')</script>";
                     } 
                 }    
                 }
