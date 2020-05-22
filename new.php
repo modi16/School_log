@@ -64,9 +64,10 @@
                     <div class="form-group">
                         <input type="text" class="form-control new" name="address" placeholder="Address">
                     </div>
-                    
-                    <input class="btn" type="file" name="image">
-                    
+                    <div>
+                        <input class="custom-file-input" type="file" name="image">
+                        <label class="custom-file-label" for="file">Choose file</label>
+                    </div>
                     <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modalMessage" value="Add">
 
                 </form>
@@ -79,15 +80,19 @@
                 if ($_SERVER["REQUEST_METHOD"]=="POST"){
                     $name=filter_var($_POST["name"], FILTER_SANITIZE_STRING);
                     $email=filter_var($_POST["email"],FILTER_SANITIZE_STRING );
-                   
+                    
+                    if (strlen($name)===0 || strlen($email) ===0 || strlen($_POST["qualification"]) ===0 || strlen($_POST["class"]===0) || strlen($_POST["mobile"]===0) || strlen($_POST["address"]===0)){
+                        echo "Please complete the form";
+                    } else {
 
-                    $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address, Joining_date) VALUES (?,?,?,?,?,?, CURDATE())';
-                    $stmt = mysqli_prepare($connection, $new);
-                    $stmt->bind_param("ssssss", $name, $email, $_POST["qualification"],$_POST["class"], $_POST["mobile"], $_POST["address"] );
+                        $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address, Joining_date) VALUES (?,?,?,?,?,?, CURDATE())';
+                        $stmt = mysqli_prepare($connection, $new);
+                        $stmt->bind_param("ssssss", $name, $email, $_POST["qualification"],$_POST["class"], $_POST["mobile"], $_POST["address"] );
                     
                     if ($stmt->execute()){
                         echo "<script>$('#modalMessage').modal('show')</script>";
-                    }     
+                    } 
+                }    
                 }
            ;
                 
