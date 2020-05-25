@@ -76,10 +76,8 @@
                     <div class="form-group">
                         <input type="text" class="form-control new" name="address" placeholder="Address">
                     </div>
-                    <div>
-                        <input class="custom-file-input" type="file" name="image">
-                        <label class="custom-file-label" for="file">Choose file</label>
-                    </div>
+                    <input type="file" id="file"/>
+                    <label for="file">Choose a file</label>
                     <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modalMessage" value="Add">
 
                 </form>
