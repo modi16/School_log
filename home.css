@@ -90,17 +90,18 @@ form{
     width: 1px; 
 }
 [type="file"] + label {
-    background-color: #000;
-    border-radius: 4rem;
+    background-color: #800020;
+    border-radius: .25rem;
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    padding-left: 2rem 4rem;
+    padding: .375rem .75rem
 }
 
 [type="file"]:focus + label,
 [type="file"] + label:hover {
-    background-color: #f15d22;
+    
+    color: gold;
 }
   
 [type="file"]:focus + label {
