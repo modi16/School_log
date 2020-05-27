@@ -78,6 +78,16 @@ form{
 .letter{
     color: #800020;
 }
+.addbtn{
+    background-color: #800020;
+    border-radius: .25rem;
+    color: #fff;
+    cursor: pointer;
+    /* display: inline-block; */
+    padding: .375rem .75rem;   
+    border: 0;
+    
+}
 
 [type="file"] {
     border: 0;
@@ -95,7 +105,7 @@ form{
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    padding: .375rem .75rem
+    padding: .375rem .75rem;
 }
 
 [type="file"]:focus + label,
