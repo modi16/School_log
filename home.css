@@ -83,13 +83,13 @@ form{
     border-radius: .25rem;
     color: #fff;
     cursor: pointer;
-    
+    position: absolute;
     padding: .375rem .75rem;   
     border: 0;
-    
+    right: 48px;
 }
 .lastline{
-    display:inline-block;
+    display:inline;
 }
 
 [type="file"] {

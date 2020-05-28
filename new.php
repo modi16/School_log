@@ -53,7 +53,7 @@
                 </nav>
             </div>
             <div class="container">
-                <form method="post" class="border border-light p-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+                <form method="post" class="border border-light p-5 position-relative" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="form-group"> 
                         <label>Name</label> 
                         <input type="text" class="form-control new" name="name" placeholder="Full name">
