@@ -76,12 +76,13 @@
                     <div class="form-group">
                         <input type="text" class="form-control new" name="address" placeholder="Address">
                     </div>
-                    
-                    <input type="file" id="file"/>
-                    <label for="file">Choose a file</label>
-                    <div class="text-right">
-                    <input type="submit" class="addbtn " data-toggle="modal" data-target="#modalMessage" value="Add">
-</div>
+                    <div class="lastline">
+                        <input type="file" id="file"/>
+                        <label for="file">Choose a file</label>
+                    </div>
+                    <div class="lastline">
+                        <input type="submit" class="addbtn " data-toggle="modal" data-target="#modalMessage" value="Add">
+                    </div>
                 </form>
                 
             </div>
