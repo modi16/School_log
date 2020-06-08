@@ -7,10 +7,15 @@
     background-position: center;
     background-size: cover;
 }
+a{
+    font-family: 'Courier Prime', monospace;
+}
 
 .instruct{
     color:white;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'Courier Prime', monospace;
+    margin-top: 1rem;
 }
 
 .center{
@@ -87,6 +92,9 @@ form{
     padding: .375rem .75rem;   
     border: 0;
     right: 48px;
+}
+.addbtn:hover{
+    color: gold;
 }
 .lastline{
     display:inline;
