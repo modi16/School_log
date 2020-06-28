@@ -78,7 +78,7 @@
                         <input type="text" class="form-control new" name="address" placeholder="Address">
                     </div>
                     <div class="lastline">
-                        <input type="file" id="file"/>
+                        <input type="file" id="file" name="image"/>
                         <label for="file">Choose a file</label>
                     </div>
                     <div class="lastline">
@@ -94,15 +94,22 @@
                 if ($_SERVER["REQUEST_METHOD"]=="POST"){
                     $name=filter_var($_POST["name"], FILTER_SANITIZE_STRING);
                     $email=filter_var($_POST["email"],FILTER_SANITIZE_STRING );
+                    $image = $_FILES['image']['name'];
+                    $target = "images/".basename($image);
+                    $msg="";
                     
                     if (strlen($name)===0 || strlen($email) ===0 || strlen($_POST["qualification"]) ===0 || strlen($_POST["class"]===0) || strlen($_POST["mobile"]===0) || strlen($_POST["address"]===0)){
                         echo "<script>$('#modalMessage').modal('show')</script>";
                     } else {
 
-                        $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address, Joining_date) VALUES (?,?,?,?,?,?, CURDATE())';
+                        $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address, Joining_date, Profile_Pic) VALUES (?,?,?,?,?,?, CURDATE(),?)';
                         $stmt = mysqli_prepare($connection, $new);
-                        $stmt->bind_param("ssssss", $name, $email, $_POST["qualification"],$_POST["class"], $_POST["mobile"], $_POST["address"] );
-                    
+                        $stmt->bind_param("sssssss", $name, $email, $_POST["qualification"],$_POST["class"], $_POST["mobile"], $_POST["address"],$image );
+                            if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+                                $msg = "Image uploaded successfully";
+                            }else{
+                                $msg = "Failed to upload image";
+                            }
                     if ($stmt->execute()){
                         echo "<script>$('#modalMessage1').modal('show')</script>";
                     } 
