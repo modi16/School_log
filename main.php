@@ -43,6 +43,8 @@
                 </tr>
             </thead>";
                 while($result=mysqli_fetch_assoc($run_query)){
+                    $images_field= $result['Profile_Pic'];
+                    $image_show= "images/$images_field";
                     echo "<tr><td>";
                     echo $result['teacher_id'];
                     echo "</td><td>";
@@ -59,8 +61,8 @@
                     echo $result['Address'];
                     echo "</td><td>";
                     echo $result['Joining_date'];
-                    echo "</td></tr>";  
-                    echo $result['Profile_Pic'];
+                    echo "</td><td>";  
+                    echo "<img src=". $image_show.">";
                     echo "</td></tr>";                     
                     }
                     echo" </table>";
