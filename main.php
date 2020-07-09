@@ -65,7 +65,7 @@
                     echo "</td><td>";  
                     echo "<img src=". $image_show.">";
                     echo "</td><td>";  
-                    echo "<a> Update</a>";
+                    echo "<a href='/school/update_action.php'> Update</a>";
                     echo "</td></tr>";                   
                     }
                     echo" </table>";
