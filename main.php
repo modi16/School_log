@@ -40,6 +40,7 @@
                     <td> Address</td>
                     <td> Joining date</td>
                     <td> Profile pic</td>
+                    <td> Action </td>
                 </tr>
             </thead>";
                 while($result=mysqli_fetch_assoc($run_query)){
@@ -63,7 +64,9 @@
                     echo $result['Joining_date'];
                     echo "</td><td>";  
                     echo "<img src=". $image_show.">";
-                    echo "</td></tr>";                     
+                    echo "</td><td>";  
+                    echo "<a> Update</a>";
+                    echo "</td></tr>";                   
                     }
                     echo" </table>";
          ?> 
