@@ -46,6 +46,7 @@
                 while($result=mysqli_fetch_assoc($run_query)){
                     $images_field= $result['Profile_Pic'];
                     $image_show= "images/$images_field";
+                    $id=$result['teacher_id'];
                     echo "<tr><td>";
                     echo $result['teacher_id'];
                     echo "</td><td>";
@@ -65,7 +66,7 @@
                     echo "</td><td>";  
                     echo "<img src=". $image_show.">";
                     echo "</td><td>";  
-                    echo "<a href='/school/update_action.php'> Update</a>";
+                    echo "<a href='/school/update_action.php/$id'> Update</a>";
                     echo "</td></tr>";                   
                     }
                     echo" </table>";

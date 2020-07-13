@@ -51,11 +51,20 @@
                     
                 </nav>
             </div>
+            <?php
+                include('dbconnection.php');
+                
+                $queryall="SELECT * FROM teacher_records WHERE teacher_id=$id";
+                $run_query=(mysqli_query($connection, $queryall));
+                while($result=mysqli_fetch_assoc($run_query)){
+                    echo $result['teacher_id'];
+                }
+            ?>            
             <div class="container">
                 <form method="post" class="border border-light p-5 position-relative" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="form-group"> 
                         <label>Name</label> 
-                        <input type="text" class="form-control new" name="name" placeholder="Full name">
+                        <input type="text" class="form-control new" name="name" placeholder="Full name"><?php $result['Teacher_name']?>
                     </div>
                     <div class="form-group"> 
                         <label>Email</label>
@@ -80,15 +89,17 @@
                         <label for="file">Choose a file</label>
                     </div>
                     <div class="lastline">
-                        <input type="submit" class="addbtn " data-toggle="modal" data-target="#modalMessage" value="Add">
+                        <input type="submit" class="addbtn " data-toggle="modal" data-target="#modalMessage" value="Update">
                     </div>
                 </form>
                 
             </div>
+            
 
             <?php
                 include('dbconnection.php');
-
+                
+                
                 if ($_SERVER["REQUEST_METHOD"]=="POST"){
                     $name=filter_var($_POST["name"], FILTER_SANITIZE_STRING);
                     $email=filter_var($_POST["email"],FILTER_SANITIZE_STRING );
@@ -111,7 +122,8 @@
                     if ($stmt->execute()){
                         echo "<script>$('#modalMessage1').modal('show')</script>";
                     } 
-                }    
+                    }
+                    
                 }
            ;
                 
@@ -120,5 +132,4 @@
             
         </body>
     
-</html> 
-
+</html>

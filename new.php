@@ -36,9 +36,7 @@
                 <nav class="navbar navbar-expand-sm ">
                     
                     <ul class="navbar-nav mr-auto">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li> -->
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/school/main.php">Display all records</a>
                         </li>
