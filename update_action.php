@@ -54,33 +54,33 @@
             <?php
                 include('dbconnection.php');
                 
-                $queryall="SELECT * FROM teacher_records";
+                $queryall="SELECT * FROM teacher_records WHERE teacher_id ='" . $_GET['userid'] . "'";
                 $run_query=(mysqli_query($connection, $queryall));
-                
+                $result=mysqli_fetch_assoc($run_query)
             ?>            
             <div class="container">
                 <form method="post" class="border border-light p-5 position-relative" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="form-group"> 
                         <label>Name</label> 
-                        <input type="text" class="form-control new" name="name" placeholder="Full name"><?php $result['Teacher_name']?>
+                        <input type="text" class="form-control new" name="name" value="<?php echo $result['Teacher_name'];?>">
                     </div>
                     <div class="form-group"> 
                         <label>Email</label>
-                        <input type="text" class="form-control new" name="email" placeholder="Email">
+                        <input type="text" class="form-control new" name="email" value="<?php echo $result['Teacher_email'];?>">
                     </div>
                     <div class="form-group"> 
-                        <input type="text" class="form-control new" name="qualification" placeholder="Qualification">
+                        <input type="text" class="form-control new" name="qualification" value="<?php echo $result['Teacher_qualification'];?>">
                     </div>
                     <div class="row set">
                         <div class="col">
-                            <input type="text" class="form-control" name="class" placeholder="Class">
+                            <input type="text" class="form-control" name="class" value="<?php echo $result['Teacher_class'];?>">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" name="mobile" placeholder="Phone">
+                            <input type="text" class="form-control" name="mobile" value="<?php echo $result['Mobile'];?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control new" name="address" placeholder="Address">
+                        <input type="text" class="form-control new" name="address" value="<?php echo $result['Address'];?>">
                     </div>
                     <div class="lastline">
                         <input type="file" id="file" name="image"/>
