@@ -53,10 +53,18 @@
             </div>
             <?php
                 include('dbconnection.php');
-                
-                $queryall="SELECT * FROM teacher_records WHERE teacher_id ='" . $_GET['userid'] . "'";
-                $run_query=(mysqli_query($connection, $queryall));
-                $result=mysqli_fetch_assoc($run_query)
+                $id=$_GET['userid'];
+
+                if(count($_POST)>0) {
+                    mysqli_query($connection,"UPDATE teacher_records SET Teacher_name=$name, Teacher_email=$email, Teacher_qualification='" . $_POST["qualification"] . "', Teacher_class= '" . $_POST["class"] . "', Mobile='" . $_POST["mobile"] . "', Address='" . $_POST["address"] ."', Profile_Pic=$image WHERE teacher_id='" . $_POST['teacher_id'] . "'");
+                    
+                    echo "<script>$('#modalMessage1').modal('show')</script>";
+                        header ('Location: main.php');;
+                    }
+                    $id=$_GET['userid'];
+                    $queryall="SELECT * FROM teacher_records WHERE teacher_id ='$id'";
+                    $run_query=(mysqli_query($connection, $queryall));
+                    $result=mysqli_fetch_assoc($run_query)
             ?>            
             <div class="container">
                 <form method="post" class="border border-light p-5 position-relative" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
@@ -91,43 +99,7 @@
                     </div>
                 </form>
                 
-            </div>
-            
-
-            <?php
-                include('dbconnection.php');
-                
-                
-                if ($_SERVER["REQUEST_METHOD"]=="POST"){
-                    $name=filter_var($_POST["name"], FILTER_SANITIZE_STRING);
-                    $email=filter_var($_POST["email"],FILTER_SANITIZE_STRING );
-                    $image = $_FILES['image']['name'];
-                    $target = "images/".basename($image);
-                    $msg="";
-                    
-                    if (strlen($name)===0 || strlen($email) ===0 || strlen($_POST["qualification"]) ===0 || strlen($_POST["class"]===0) || strlen($_POST["mobile"]===0) || strlen($_POST["address"]===0)){
-                        echo "<script>$('#modalMessage').modal('show')</script>";
-                    } else {
-
-                        $new='INSERT INTO teacher_records (Teacher_name, Teacher_email, Teacher_qualification, Teacher_class, Mobile, Address, Joining_date, Profile_Pic) VALUES (?,?,?,?,?,?, CURDATE(),?)';
-                        $stmt = mysqli_prepare($connection, $new);
-                        $stmt->bind_param("sssssss", $name, $email, $_POST["qualification"],$_POST["class"], $_POST["mobile"], $_POST["address"],$image );
-                            if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-                                $msg = "Image uploaded successfully";
-                            }else{
-                                $msg = "Failed to upload image";
-                            }
-                    if ($stmt->execute()){
-                        echo "<script>$('#modalMessage1').modal('show')</script>";
-                    } 
-                    }
-                    
-                }
-           ;
-                
-            ?>  
-                    
-            
+            </div>    
         </body>
     
 </html>
